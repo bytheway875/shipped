@@ -4,12 +4,14 @@ class ApplicationController < ActionController::Base
 
    def set_current_user	
     @current_user = User.find_by(id: session[:user_id])
-    
+    # This method needs an "end"
+   end
+	
    def send_to_login_unless_logged_in
      if @current_user.nil?
      	redirect_to login_path, notice: "You must login before proceeding"
-    end
- end
+     end
+   end
 end
 
 					
@@ -18,17 +20,4 @@ end
 				
 
 					
-					
 
-
-	
-
- 
-					
-			
-				
-		
-
-
-
-end
